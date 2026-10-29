@@ -27,7 +27,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 3rem;
+    width: 5rem;
     padding: 0 1rem;
 }
 
@@ -82,7 +82,15 @@ height: 30vw;
 }
 
 #GameScreen {
-    
+display: flex;
+background-color:rgb(43, 43, 43);
+font-size: 30px;
+justify-content: center;
+border-radius: 1vw;
+margin-top: 3vw;
+margin-right: 4vw;
+width: 40rem;
+height: 30rem;
 }
 
 /* Top e no topo, bottom é em baixo, left e esquerda e right é direita */
