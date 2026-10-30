@@ -9,50 +9,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div id="Navbar">
-            <img src="Assets/sign.png" id="InfoIcon">
-            <h1 id="NavInfo">Lethal Letter</h1>
-        </div>
-    </header>
-    
-    <main id="MainHandler">
-        <div id="Player1Bar">
-            <div>
-                <img src="" alt="">
+        <main id="MainHandler">
+        
+        <!-- LADO DO JOGADOR 1 (Esquerda) -->
+        <div class="player-side">
+            <!-- Barra de Erro no Topo -->
+            <div id="Player1Bar">
+                <div><img src="" alt=""></div>
             </div>
+            <!-- Palavra e Input abaixo da Barra -->
+            <div id="Player1Word" class="word-display">_ _ _ _ _</div>
+            <input type="text" id="Player1TyBar" maxlength="1" placeholder="A" autofocus autocomplete="off">
         </div>
-        <!--MAIN GAME SCREEN-->
-                <!--MAIN GAME SCREEN-->
+
+        <!-- MAIN GAME SCREEN (Centro) -->
         <div id="GameScreen">
-            <!-- Boneco Vermelho (Esquerda) -->
             <img src="Assets/Chair2.png" id="P2Chair" alt="Jogador Vermelho">
-            
-            <!-- Boneco Azul (Direita) -->
             <img src="Assets/Chair1.png" id="P1Chair" alt="Jogador Azul">
         </div> 
-        <!------------------------------------->
-        <div id="Player2Bar">
+
+        <!-- LADO DO JOGADOR 2 (Direita) -->
+        <div class="player-side">
+            <!-- Barra de Erro no Topo -->
+            <div id="Player2Bar"></div>
+            <!-- Palavra e Input abaixo da Barra -->
+            <div id="Player2Word" class="word-display">_ _ _ _ _</div>
+            <input type="text" id="Player2TyBar" maxlength="1" placeholder="B" autocomplete="off">
         </div>
+
     </main>
-        <main id="MainHandler">
-            <div id="Player1Word"></div>
-            <div id="Player2Word"></div>
-            <div id="Player3Word"></div>
-            
-        <!-- O type="text" permite letras, e o maxlength="1" bloqueia após a primeira letra -->
-        <input type="text" id="Player1TyBar" maxlength="1" placeholder="A" autofocus autocomplete="off">
-        
-        <input type="text" id="Player2TyBar" maxlength="1" placeholder="B" autocomplete="off">
-    </main>
-    
-    <div class="palavra" id="palavra"></div>
-
-<input type="text" id="letra" maxlength="1" placeholder="Digite uma letra">
-
-<button onclick="verificarLetra()">Enviar</button>
-    
-
 </body>
 <script src="script.js"></script>
 </html

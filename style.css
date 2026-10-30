@@ -10,7 +10,7 @@ body {
     background-color: #484848;
     color: #ffffff;
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 0; 
     padding: 0;
 }
 
@@ -53,94 +53,77 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 100vh;
-}
-/* Player 1 ------- Tudo relacionado ao jogador 1! -----///----*/
-#Player1Bar { /* essa é a barrinha de erro do jogador 1  */
-display: flex;
-width: 12vw;
- background-color:rgb(198, 198, 198);
- font-size: 30px;
- justify-content: center;
- border-radius: 1vw;
- border-color: #242424;
-margin-top: 3vw;
-margin-left: 4vw;
-height: 30vw;
+    height: calc(100vh - 4rem); /* Desconta a Navbar para evitar rolagem de tela */
+    padding: 0 3vw;
 }
 
-#Player1TyBar, #Player2TyBar {
-    width: 5rem;               /* Tamanho ideal quadrado para destacar uma única letra */
-    height: 4rem;
-    background-color: #242424;
-    
-    border: 4px solid #f5f5f5; /* Atalho para largura, estilo (solid) e cor (whitesmoke) */
-    border-radius: 12px;       /* Bordas arredondadas suaves */
-    margin-top: -20rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
-    
-    /* Centralização Perfeita da Letra */
+/* Container que joga a palavra e o input para BAIXO da barra cinza */
+.player-side {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 1.5rem;            /* Espaçamento perfeito entre a barra, palavra e caixa */
+}
 
+/* Estilo das palavras secretas */
+.word-display {
+    font-size: 2.5rem;      
+    font-weight: bold;
+    letter-spacing: 0.5rem; 
     color: #ffffff;
-    font-size: 3.5rem;
+    text-align: center;
+}
+
+/* Barras de Erro Laterais */
+#Player1Bar, #Player2Bar {
+    display: flex;
+    width: 12vw;
+    height: 25vw;
+    background-color: rgb(198, 198, 198);
+    justify-content: center;
+    border-radius: 1vw;
+    border: 4px solid #242424;
+}
+
+/* Caixas de Digitação (Inputs) */
+#Player1TyBar, #Player2TyBar {
+    width: 5rem;               
+    height: 5rem;
+    background-color: #242424;
+    border: 4px solid #f5f5f5; 
+    border-radius: 12px;       
+    
+    text-align: center;
+    line-height: 5rem;
+    color: #ffffff;
+    font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
+    outline: none;
+    caret-color: transparent;
     
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 
                 inset 0 2px 4px rgba(255, 255, 255, 0.1);
-    
     transition: all 0.2s ease; 
 }
 
+#Player1TyBar:focus, #Player2TyBar:focus,
 #Player1TyBar:hover, #Player2TyBar:hover {
     border-color: #ff4a4a;
     box-shadow: 0 0 15px rgba(255, 74, 74, 0.6);
 }
 
-
-#Player2Bar {
-display: flex;
-width: 12vw;
-background-color:rgb(198, 198, 198);
- font-size: 30px;
- justify-content: center;
- border-radius: 1vw;
-margin-top: 3vw;
-border-color: #242424;
-border-width: 5vw;
-margin-right: 4vw;
-height: 30vw;
-}
-#TypeSection{
-    display: flex;
-    background-color: blue;
-}
-
-#Player1Word{
-    width: 2vw;
-    height: 2vw;
-}
-
-#Player2Word{
-
-}
-
-/* Main Game Stuff ------//------ */
+/* Main Game Stuff (Mesa Central) */
 #GameScreen { 
   display: flex; 
-  background-image: url('Assets/background.png'); /* Pega a imagem direto pelo CSS de fundo */
+  background-image: url('Assets/background.png'); 
   background-size: cover; 
   background-position: center; 
   background-color: rgb(43, 43, 43); 
-  font-size: 30px; 
   
-  justify-content: space-between; /* Um boneco em cada canto */
-  align-items: flex-end;          /* Alinha os bonecos no chão da tela */
-  padding: 0 4.5rem;              /* Distância ideal para encaixar certinho nas pontas da mesa */
+  justify-content: space-between; 
+  align-items: flex-end;          
+  padding: 0 4.5rem;              
   
   border-radius: 1vw; 
   width: 40rem; 
@@ -148,27 +131,6 @@ height: 30vw;
   position: relative;
 }
 
-#P1Chair {
+#P1Chair, #P2Chair {
     margin-bottom: 2.5rem;
-}
-
-#P2Chair {
-    margin-bottom: 2.5rem;
-}
-
-
-/* CAIXA PARA COLOCAR A PALAVRA (TESTE)*/
-.palavra {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin: 30px;
-}
-
-.letra {
-    width: 25px;
-    text-align: center;
-    font-size: 25px;
-    border-bottom: 3px solid white;
-    color: white;
 }
