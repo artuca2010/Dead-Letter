@@ -55,42 +55,66 @@ body {
     width: 100vw;
     height: 100vh;
 }
-
+/* Player 1 ------- Tudo relacionado ao jogador 1! -----///----*/
 #Player1Bar { /* essa é a barrinha de erro do jogador 1  */
 display: flex;
 width: 12vw;
- background-color:rgb(252, 252, 252);
+ background-color:rgb(198, 198, 198);
  font-size: 30px;
  justify-content: center;
  border-radius: 1vw;
+ border-color: #242424;
 margin-top: 3vw;
 margin-left: 4vw;
 height: 30vw;
 }
 
+#Player1TypeBar {
+
+}
+/* Player 2 ------- Tudo relacionado ao jogador 2! -----//----- */
+#Player2TypeBar {
+
+}
+
 #Player2Bar {
-   
 display: flex;
 width: 12vw;
- background-color:rgb(252, 252, 252);
+background-color:rgb(198, 198, 198);
  font-size: 30px;
  justify-content: center;
  border-radius: 1vw;
 margin-top: 3vw;
+border-color: #242424;
+border-width: 5vw;
 margin-right: 4vw;
 height: 30vw;
 }
 
-#GameScreen {
-display: flex;
-background-color:rgb(43, 43, 43);
-font-size: 30px;
-justify-content: center;
-border-radius: 1vw;
-margin-top: 3vw;
-margin-right: 4vw;
-width: 40rem;
-height: 30rem;
+/* Main Game Stuff ------//------ */
+/* Main Game Stuff ------//------ */
+#GameScreen { 
+  display: flex; 
+  background-image: url('Assets/background.png'); /* Pega a imagem direto pelo CSS de fundo */
+  background-size: cover; 
+  background-position: center; 
+  background-color: rgb(43, 43, 43); 
+  font-size: 30px; 
+  
+  justify-content: space-between; /* Um boneco em cada canto */
+  align-items: flex-end;          /* Alinha os bonecos no chão da tela */
+  padding: 0 4.5rem;              /* Distância ideal para encaixar certinho nas pontas da mesa */
+  
+  border-radius: 1vw; 
+  width: 40rem; 
+  height: 30rem; 
+  position: relative;
 }
 
-/* Top e no topo, bottom é em baixo, left e esquerda e right é direita */
+#P1Chair {
+    margin-bottom: 5.5rem; /* Sobe o boneco vermelho até a altura da mesa */
+}
+
+#P2Chair {
+    margin-bottom: 5.5rem; /* Sobe o boneco azul até a altura da mesa */
+}
