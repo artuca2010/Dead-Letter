@@ -35,7 +35,24 @@
         <div id="Player2Bar">
         </div>
     </main>
+        <main id="MainHandler">
+            <div id="Player1Word"></div>
+            <div id="Player2Word"></div>
+            <div id="Player3Word"></div>
+            
+        <!-- O type="text" permite letras, e o maxlength="1" bloqueia após a primeira letra -->
+        <input type="text" id="Player1TyBar" maxlength="1" placeholder="A" autofocus autocomplete="off">
+        
+        <input type="text" id="Player2TyBar" maxlength="1" placeholder="B" autocomplete="off">
+    </main>
     
+    <div class="palavra" id="palavra"></div>
+
+<input type="text" id="letra" maxlength="1" placeholder="Digite uma letra">
+
+<button onclick="verificarLetra()">Enviar</button>
+    
+
 </body>
 <script src="script.js"></script>
-</html>
+</html
