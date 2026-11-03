@@ -1,4 +1,16 @@
-const palavras = ["COMPUTADORES", "TECLADO", "MONITOR", "INTERNET", "PROGRAMA"];
+const palavras = [
+    "COMPUTADORES", "TECLADO", "MONITOR", "INTERNET", "PROGRAMA", // Suas 5 originais
+    "CANETA", "CADERNO", "MOCHILA", "CELULAR", "RELOGIO",
+    "CADEIRA", "JANELA", "PLANETA", "GALAXIA", "FUTEBOL",
+    "GUITARRA", "BATERIA", "TEATRO", "CINEMA", "CASTELO",
+    "FLORESTA", "DESERTO", "OCEANO", "VIAGEM", "AVIAO",
+    "CORRIDA", "DESTINO", "TESOURO", "PIRATA", "CORONA",
+    "ESMERALDA", "DIAMANTE", "FANTASMA", "VAMPIRO", "DRAGOA",
+    "MISTERIO", "SEGREDO", "UNIVERSO", "CORAGEM", "TALENTO",
+    "FLAMINGO", "GIRAFA", "LEOPARDO", "TUBARAO", "PINGUIM",
+    "PROJETO", "DESENHO", "PINTURA", "ESTATUA", "VIOLINO"
+];
+
 const MAX_ERROS = 5;
 const rodada = document.getElementById("RoundInfo");
 const GameMusic = new Audio("Assets/GameMusic.mp3");
