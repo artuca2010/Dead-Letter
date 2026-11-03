@@ -1,45 +1,100 @@
-///Barra de tipagem e rounds ------///------
-let Player1TypeBar = document.getElementById(typ)
+const palavras = ["COMPUTADORES", "TECLADO", "MONITOR", "INTERNET", "PROGRAMA"];
+const MAX_ERROS = 5;
+const rodada = document.getElementById("RoundInfo");
+const GameMusic = new Audio("Assets/GameMusic.mp3");
+const GameEnd = new Audio("Assets/GameEnd.mp3")
+GameMusic.loop = true;
+GameMusic.volume = 0.5;
+GameEnd.volume = 1;
 
-
-
-
-
-
-
-/// COMANDO CAIXA DE PALAVRAS ()
-const palavra = "COMPUTADORES";
-let letras = [];
-
-function mostrarPalavra() {
-    const tela = document.getElementById("palavra");
-
-    tela.innerHTML = "";
-
-    for (let letra of palavra) {
-        const espaco = document.createElement("span");
-
-        espaco.className = "letra";
-
-        espaco.textContent = letras.includes(letra)
-            ? letra
-            : "_";
-
-        tela.appendChild(espaco);
+const jogadores = [
+    {
+        texto: document.getElementById("Player1Word"),
+        campo: document.getElementById("Player1TyBar"),
+        barra: document.getElementById("Player1Bar"),
+        cadeira: document.getElementById("P1Chair"),
+        tubo: document.getElementById("P1Tube"),
+        letras: [],
+        erros: 0
+    },
+    {
+        texto: document.getElementById("Player2Word"),
+        campo: document.getElementById("Player2TyBar"),
+        barra: document.getElementById("Player2Bar"),
+        cadeira: document.getElementById("P2Chair"),
+        tubo: document.getElementById("P2Tube"),
+        letras: [],
+        erros: 0
     }
+];
+
+let vez = 0;
+let fim = false;
+
+function mostrarPalavra(j) {
+    j.texto.textContent = [...j.palavra]
+        .map(l => j.letras.includes(l) ? l : "_")
+        .join(" ");
 }
 
-function verificarLetra() {
-    const campo = document.getElementById("letra");
-    const tentativa = campo.value.toUpperCase();
-
-    if (palavra.includes(tentativa) && !letras.includes(tentativa)) {
-        letras.push(tentativa);
-    }
-
-    mostrarPalavra();
-
-    campo.value = "";
+function atualizarVez() {
+    jogadores.forEach((j, i) => {
+        j.campo.disabled = fim || i !== vez;
+    });
+    jogadores[vez].campo.focus();
+    rodada.textContent = fim ? "Fim de jogo" : "Round do Jogador " + (vez + 1);
 }
 
-mostrarPalavra();
+function perder(j) {
+    j.tubo.src = "Assets/OpendTube.png";
+    j.cadeira.classList.add("cai");
+    fim = true;
+    GameMusic.pause()
+    GameEnd.play()
+}
+
+function jogar(j) {
+    const letra = j.campo.value.toUpperCase();
+    j.campo.value = "";
+
+    if (!/[A-Z]/.test(letra) || j.letras.includes(letra)) return;
+
+    j.letras.push(letra);
+
+    if (!j.palavra.includes(letra)) {
+        j.erros++;
+        j.barra.firstElementChild.style.height = (j.erros / MAX_ERROS * 100) + "%";
+    }
+
+    mostrarPalavra(j);
+
+    if (j.erros >= MAX_ERROS) {
+    perder(j);
+} else if (!j.texto.textContent.includes("_")) {
+    perder(jogadores[1 - vez]);
+} else {
+    vez = 1 - vez;
+}
+
+    atualizarVez();
+}
+
+const botao = document.getElementById("BtnComecar");
+
+botao.addEventListener("click", () => {
+    const sorteadas = [...palavras].sort(() => Math.random() - 0.5);
+
+    jogadores.forEach((j, i) => {
+        j.palavra = sorteadas[i];
+        mostrarPalavra(j);
+    });
+
+    GameMusic.play();
+    botao.style.display = "none";
+    atualizarVez();
+});
+
+jogadores.forEach(j => {
+    j.campo.disabled = true;
+    j.campo.addEventListener("input", () => jogar(j));
+});
