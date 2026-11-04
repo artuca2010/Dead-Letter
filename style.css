@@ -228,3 +228,9 @@ body {
     box-shadow: none;
     cursor: not-allowed;
 }
+
+/*---COpyright Footer ----*/
+#CopyrightFooter {
+    width: 100vw;
+    height: 5vw;
+}
