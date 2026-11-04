@@ -229,8 +229,90 @@ body {
     cursor: not-allowed;
 }
 
-/*---COpyright Footer ----*/
+/*--- Copyright Footer ----*/
+footer {
+    width: 100%;
+    background-color: #0d0e12; /* Fundo escuro estilo gaming */
+    border-top: 2px solid #ff4a4a; /* Linha de destaque (mude a cor se preferir azul/outra) */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 15px 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+}
+
 #CopyrightFooter {
-    width: 100vw;
-    height: 5vw;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.game-copyright {
+    color: #8a8d98;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.game-copyright span {
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-credits {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.developer {
+    color: #8a8d98;
+    font-size: 0.9rem;
+}
+
+.developer strong {
+    color: #ff4a4a; /* Destaque para o seu nick */
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #1f222e;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid #2f3447;
+}
+
+/* Efeito Hover no botão do GitHub */
+.github-link:hover {
+    background-color: #ff4a4a; /* Fica vermelho (ou a cor do seu jogo) ao passar o mouse */
+    border-color: #ff4a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 74, 74, 0.3);
+}
+
+/* Responsividade para telas menores (Celular) */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-credits {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
